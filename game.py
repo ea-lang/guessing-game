@@ -1,4 +1,5 @@
 play_again = "yes"
+scoreList = []
 while play_again == "yes":   
     import random
     guess_count = 1
@@ -27,6 +28,8 @@ while play_again == "yes":
             print("Your guess is too low, try again.")
             guess = int(raw_input("Your guess?"))
             guess_count += 1
-
-    print("Well done %s! You found my number in " % (name) + str(guess_count) + " tries!")
+    scoreList.append(guess_count)
+    best_score = min(scoreList)
+    print("Well done %s! You found my number in " % (name) + str(guess_count) + " tries! The best score is " + str(best_score) + "!")
     play_again = raw_input("Would you like to start a new game? Yes or No").lower()
+    
